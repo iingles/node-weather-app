@@ -1,0 +1,24 @@
+{
+  "name": "nodeweather",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iingles/node-weather-app.git"
+  },
+  "author": "Isaac Ingles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iingles/node-weather-app/issues"
+  },
+  "homepage": "https://github.com/iingles/node-weather-app#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.1"
+  }
+}
