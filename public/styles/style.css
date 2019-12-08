@@ -1,0 +1,14 @@
+body {
+    padding: 25px;
+    font-family: Arial sans-serif;
+}
+
+h1 {
+    color: red;
+}
+
+img {
+    margin: 10px 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}

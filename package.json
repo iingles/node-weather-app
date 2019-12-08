@@ -5,7 +5,7 @@
   "main": "./src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app"
+    "start": "nodemon app -e js,hbs"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/iingles/node-weather-app#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "hbs": "^4.0.6",
     "nodemon": "^2.0.1"
   }
 }
