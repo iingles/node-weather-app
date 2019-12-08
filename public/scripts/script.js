@@ -5,9 +5,13 @@ const weatherLocation = document.getElementById('weatherLocation')
 const weatherForecast = document.getElementById('weatherForecast')
 const weatherAddress = document.getElementById('weatherAddress')
 
+
 weatherForm.addEventListener('submit', e => {
     e.preventDefault()
     const location = search.value.toUpperCase()
+    
+    weatherLocation.textContent = ''
+    weatherForecast.textContent = ''
 
     fetch('http://localhost:3000/weather-response/?address=' + location).then( (res) => {        
         res.json().then( (data) => {
