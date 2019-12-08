@@ -88,7 +88,7 @@ app.get('/weather-response', (req, res,)=> {
     //error handling 
     if(!req.query.address) {
         return res.send({
-            error: 'You must provide an address.'
+            error: 'You must provide a location.'
         })
     }
     geocode(req.query.address, (err, { latitude, longitude, location })=>{
@@ -99,7 +99,7 @@ app.get('/weather-response', (req, res,)=> {
             if(err) {
                 return res.send({ err })
             }
-            res.render('weather-response', {
+            res.json({
                 forecast: forecastData,
                 location,
                 address: req.query.address.toUpperCase()

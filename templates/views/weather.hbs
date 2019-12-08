@@ -1,7 +1,15 @@
 {{>header}}
-    <h1>Check the Weather!</h1>
-    <form method="get" action="/weather-response">
-        <input name="address" placeholder="enter a US city">
-        <button type="submit">Submit</button>
-    </form>
+    <div class="card">
+        <h1 class="card-title">Check the Weather!</h1>
+        <form id="weatherForm" method="get" action="/weather-response">
+            <input id="weatherInput" class="get-input" name="address" placeholder="enter a US city">
+            <button class="submit-button" type="submit">Submit</button>
+        </form>
+    </div>
+    <span id="addressError" style="color:red"></span>
+    <div class="card" id="weatherResponse">
+        <h1 class="card-title">Weather Forecast for <span id="weatherAddress"></span></h1>
+        <p id="weatherLocation"></p>
+        <p id="weatherForecast"></p>
+    </div> 
 {{>footer}}
