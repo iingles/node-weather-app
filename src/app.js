@@ -57,11 +57,11 @@ app.get('/about', (req, res)=> {
     })
 })
 
-app.get('/help', (req, res)=> {
-    res.render('help', {
+app.get('/search', (req, res)=> {
+    res.render('search', {
         //values that I want the view to access
-        pageTitle: 'Help',
-        title: 'help', 
+        pageTitle: 'Search Database',
+        title: 'search', 
         name: 'wow',
     })
 })
@@ -108,17 +108,11 @@ app.get('/weather-response', (req, res,)=> {
     })
 })
 
-app.get('/products', (req, res, )=> { 
-    //error handling
-    if(!req.query.search) {
-        return res.send({
-            error: 'You must provide a search term.'
-        })
-    }
-    res.json({
-        products: [req.query.search]
+app.get('/form', (req, res)=> { 
+    res.render('form', {
+        //values that I want the view to access
+        pageTitle: 'Form',
     })
-   
 })
 
 app.get('*', (req, res)=> {

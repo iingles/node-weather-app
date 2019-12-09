@@ -1,8 +1,15 @@
 {{>header}}
-        <h1>{{ title }}</h1>
-        <h2>{{ name }}</h2>
         <form id="userInput" method="post">
-                <input name="first" placeholder="input something">
+                <input name="first" placeholder="type a name">
+                <input name="age" placeholder="type an age">
                 <button type="submit">Submit</button>
         </form>
+        {{!-- create one of these cards for each item that is added --}}
+        <div class="card">
+                <div class="card-title">
+                        {{cardTitle}}
+                </div>
+                {{cardContent}}
+                <button class="delete">delete</button>
+        </div>
 {{>footer}}
