@@ -121,8 +121,6 @@ app.get('/products', (req, res, )=> {
    
 })
 
-
-
 app.get('*', (req, res)=> {
     res.render('404', {
         //values that I want the view to access
