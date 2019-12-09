@@ -46,20 +46,51 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: 
     //     console.log(user)
     // })
 
-    //Find returns a cursor (pointer) to the data in the database
-    //You might not want all of the data, but just information about the data 
-    db.collection('users').find({ age: 36 }).toArray((err, users) => {
-        if(err) {
-            return console.log('Unable to fetch')
-        }
-        console.log(users)
-    }) 
+    /*
+        Find returns a cursor (pointer) to the data in the database
+        You might not want all of the data, but just information about the data
+        toArray fetches everything
+        count just returns an integer of how many were found 
+    */
+    // db.collection('users').find({ age: 36 }).toArray((err, users) => {
+    //     if(err) {
+    //         return console.log('Unable to fetch')
+    //     }
+    //     console.log(users)
+    // }) 
 
-    db.collection('users').find({ age: 36 }).count((err, count) => {
-        if(err) {
-            return console.log('Unable to fetch')
-        }
-        console.log(count)
-    }) 
+    // db.collection('users').find({ age: 36 }).count((err, count) => {
+    //     if(err) {
+    //         return console.log('Unable to fetch')
+    //     }
+    //     console.log(count)
+    // })
 
+    //can also updateMany
+//   db.collection('users').updateOne({
+//         _id: new ObjectID("5ded97919111c8016f143e92")
+//     },
+//     {
+//         $set: {
+//             //this only impacts the fields we have specifically set out
+//             name: 'Mike'
+//         },
+//         $inc: {
+//             //increment the age by one
+//             age: 1
+//         }
+//     }).then((result)=>{
+//         console.log(result)
+//     }).catch((error) => {
+//         console.log(error)
+//     })
+
+    //can also deleteOne
+    db.collection('users').deleteMany({
+        age: 27
+    }).then((result)=>{
+        console.log(result)
+    }).catch((error) => {
+        console.log(error)
+    })
 })
