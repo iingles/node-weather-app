@@ -4,7 +4,7 @@ const hbs = require('hbs')
 
 //DB and mongoose stuff
 require('./database/mongoose')
-const User = require('./models/User')
+const User = require('models/User')
 
 //install cors
 const cors = require('cors')
