@@ -2,11 +2,17 @@ const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
 
-//install axios and cors
-const axios = require('axios')
+//DB and mongoose stuff
+require('./database/mongoose')
+const User = require('./models/User')
+
+//install cors
 const cors = require('cors')
 //npm dotenv package
 require('dotenv').config()
+
+
+
 //npm body-parser package
 const bodyParser = require('body-parser')
 
@@ -66,6 +72,13 @@ app.get('/search', (req, res)=> {
     })
 })
 
+app.get('/form', (req, res)=> {
+    res.render('form', {
+        //values that I want the view to access
+        pageTitle: 'form'
+    })
+})
+
 app.get('/help/*', (req, res)=>{
     //handle any page after help
     res.render('404',{
@@ -108,11 +121,47 @@ app.get('/weather-response', (req, res,)=> {
     })
 })
 
-app.get('/form', (req, res)=> { 
-    res.render('form', {
-        //values that I want the view to access
-        pageTitle: 'Form',
+
+//automatically parse incoming JSON
+app.use(express.json())
+
+app.post('/form', (req, res)=>{
+    //create a new User instance
+    const user = new User(req.body)
+
+    /*
+        save() doesn't take arguments;  returns a promise
+        If things go well, save to database; if the don't, 
+        return an error. __v: is the version of the document.
+    */
+
+    user.save().then(()=> {
+        //Status 201 - created
+        res.status(201).redirect('/form-post')
+    }).catch((e)=> {
+        //Send a status 400 - Bad Request
+        //I can chain response methods
+        res.status(400).send(e)
     })
+})
+
+app.get('/form-post', (req, res) =>{
+    User.find({/* refine search here */}).then((users)=>{
+        res.status(200).render('form-post', {users})
+    }).catch((e) => {
+        //500 - internal server error
+        res.status(500).send()
+    })
+})
+
+app.post('/remove-item', (req, res) => {
+    //remove a user
+    User.findById(req.body.id, (e, user) => {
+        user.remove((e) => {
+            res.redirect('/form-post')
+        })
+    })    
+    
 })
 
 app.get('*', (req, res)=> {

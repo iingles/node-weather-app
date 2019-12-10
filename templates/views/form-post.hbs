@@ -1,0 +1,16 @@
+{{>header}}
+        {{!-- create one of these cards for each item that is added --}}
+        {{#each users as | user | }}
+       <div class="card">
+                <div class="card-title">
+                        {{user.name}}
+                </div>                
+                <p>{{user.age}}</p>
+                <p>{{user.email}}</p>
+                <form method="post" action="/remove-item">
+                        <input type="hidden" name="id" value="{{user.id}}">
+                        <button class="submit-button" type="submit" >delete</button>
+                </form>                
+        </div>
+        {{/each}}
+{{>footer}}

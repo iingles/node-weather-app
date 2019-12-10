@@ -1,15 +1,23 @@
 {{>header}}
-        <form id="userInput" method="post">
-                <input name="first" placeholder="type a name">
-                <input name="age" placeholder="type an age">
-                <button type="submit">Submit</button>
-        </form>
-        {{!-- create one of these cards for each item that is added --}}
-        <div class="card">
-                <div class="card-title">
-                        {{cardTitle}}
+        <h1>Add an entry to the database:</h1>
+        <form id="userInput" method="post"> 
+                <div class="form-row">
+                        <label for="name">Name must only contain letters; first name only</label>
+                        <input id="name" name="name" placeholder="First Name">    
                 </div>
-                {{cardContent}}
-                <button class="delete">delete</button>
-        </div>
+                <div class="form-row">
+                        <label for="age">Age: Enter only numbers</label>
+                        <input id="age" name="age" placeholder="type an age">
+                </div>
+                <div class="form-row">
+                        <label for="email">Email: Must be a valid email, email@example.com</label>                
+                        <input id="email" name="email" placeholder="email">       
+                </div>
+                
+                <button type="submit" class="submit-button">Submit</button>
+        </form>
+        <script>
+                nameInput = document.querySelector('#name')
+                console.log(name)
+        </script>
 {{>footer}}
