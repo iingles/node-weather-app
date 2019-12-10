@@ -1,6 +1,6 @@
 //Mongo Stuff
-//Using ES6 destructuring
 
+//Using ES6 destructuring
 const { MongoClient, ObjectID } = require('mongodb')
 
 //Merely typing in "localhost" tends to create strange issues
@@ -20,6 +20,7 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: 
 
     //Simply by picking a name and accessing it, Mongo automatically creates the db
     const db = client.db(databaseName)
+    
     //Collections are sort of like tables in SQL
     //Documents are sort of like  rows/cols
     
@@ -86,11 +87,11 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: 
 //     })
 
     //can also deleteOne
-    db.collection('users').deleteMany({
-        age: 27
-    }).then((result)=>{
-        console.log(result)
-    }).catch((error) => {
-        console.log(error)
-    })
+    // db.collection('users').deleteMany({
+    //     age: 27
+    // }).then((result)=>{
+    //     console.log(result)
+    // }).catch((error) => {
+    //     console.log(error)
+    // })
 })
