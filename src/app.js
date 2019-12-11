@@ -6,7 +6,7 @@ const hbs = require('hbs')
 require('./database/mongoose')
 const User = require('./models/User')
 
-//install cors
+//install cors 
 const cors = require('cors')
 //npm dotenv package
 require('dotenv').config()
